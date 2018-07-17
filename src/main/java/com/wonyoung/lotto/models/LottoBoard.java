@@ -38,7 +38,7 @@ public class LottoBoard {
         this.lno = lno;
     }
 
-    public ArrayList<Integer> getLnumber() {
+    public List<Integer> getLnumber() {
         return lnumber;
     }
 

@@ -16,8 +16,6 @@ public class DataLoader implements ApplicationRunner {
     private LottoBoardRepository lottoRepo;
     @Override
     public void run(ApplicationArguments args) {
-        lottoRepo.save(new LottoBoard(new int[]{1,1,1,1,1,1}));
-
     }
 
 }

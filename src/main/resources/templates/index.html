@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 
 <head>
@@ -8,6 +9,11 @@
     <title>Lotto</title>
 </head>
 <body>
+    <div class="text-md-right">
+        <form th:action="@{/}" method="post">
+            <button class="btn-primary" type="submit">뽑기</button>
+        </form>
+    </div>
     <div>
         <tr th:each="lotto : ${result}">
             <p th:text = "${lotto.getLnumber()}"></p>
