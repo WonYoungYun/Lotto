@@ -12,12 +12,16 @@
         <form th:action="@{/lotto/lottoMain}" method="post">
             <button type="submit">뽑기</button>
         </form>
+
     </div>
-<div>
+    <div>
         <tr th:each="lotto:${result}" >
             <p th:text = "${lotto.getLnumber()}"></p>
         </tr>
 
+    </div>
+    <div>
+        <a type="button" href="/">돌아가기</a>
     </div>
 </body>
 </html>

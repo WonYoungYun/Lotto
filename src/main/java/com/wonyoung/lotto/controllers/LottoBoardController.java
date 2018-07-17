@@ -31,7 +31,8 @@ public class LottoBoardController {
     @PostMapping("/lottoMain")
     public String LottoPull(){
         int[] numbers = new int[6];
-        for(int i=0; i<numbers.length; i++){
+        int i;
+        for(i=0; i<numbers.length; i++){
             int n = (int)(Math.random()*45 +1);
             numbers[i] = n;
             for(int j =0; j<i; j++){
@@ -41,6 +42,7 @@ public class LottoBoardController {
             }
         }
         Arrays.sort(numbers);
+        System.out.println(i);
         lottoRepo.save(new LottoBoard(numbers));
         return "redirect:/lotto/lottoMain";
     }
