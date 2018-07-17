@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lotto</title>
+</head>
+<body>
+    <div class="text-md-right">
+        <form th:action="@{/lotto/lottoMain}" method="post">
+            <button type="submit">뽑기</button>
+        </form>
+    </div>
+<div>
+        <tr th:each="lotto:${result}" >
+            <p th:text = "${lotto.getLnumber()}"></p>
+        </tr>
+
+    </div>
+</body>
+</html>

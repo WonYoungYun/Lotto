@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-
 <head>
     <meta charset="UTF-8">
-    <title>Lotto</title>
+    <title>Index</title>
 </head>
 <body>
-    <div class="text-md-right">
-        <form th:action="@{/}" method="post">
-            <button class="btn-primary" type="submit">뽑기</button>
-        </form>
+<div class="text-md-right">
+        <a href="/lotto/lottoMain"  type="submit">로또</a>
+        <button type="submit">연금복권</button>
     </div>
-    <div>
-        <tr th:each="lotto : ${result}">
-            <p th:text = "${lotto.getLnumber()}"></p>
-        </tr>
-
-    </div>
-
 </body>
 </html>

@@ -9,40 +9,40 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 
 @Controller
+@RequestMapping("/lotto/")
 public class LottoBoardController {
 
     @Autowired
     private LottoBoardRepository lottoRepo;
 
 
-    @GetMapping("/")
+    @GetMapping("/lottoMain")
     public String LottoIndex(Model model){
         model.addAttribute("result", lottoRepo.findAllByOrderByRegdate());
-        return "index";
+        return "lotto/lottoMain";
     }
 
-    @PostMapping("/")
+    @PostMapping("/lottoMain")
     public String LottoPull(){
         int[] numbers = new int[6];
         for(int i=0; i<numbers.length; i++){
             int n = (int)(Math.random()*45 +1);
             numbers[i] = n;
             for(int j =0; j<i; j++){
-                if(numbers[j]== numbers[i]) {
+                if(numbers[j] == numbers[i]) {
                     i--;
-                    break;
                 }
             }
         }
         Arrays.sort(numbers);
         lottoRepo.save(new LottoBoard(numbers));
-        return "redirect:/";
+        return "redirect:/lotto/lottoMain";
     }
 
 }
